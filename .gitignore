@@ -1,0 +1,39 @@
+# Ignore jdk.exe file anywhere in the project
+**/jdk.exe
+
+# Or ignore all .exe files (optional, if you want to skip all executables)
+*.exe
+
+# Ignore compiled Java class files
+*.class
+
+# Ignore logs
+*.log
+
+# Ignore build directories
+/bin/
+/build/
+/out/
+
+# Ignore IntelliJ IDEA project files
+.idea/
+*.iml
+
+# Ignore Eclipse project files
+*.classpath
+*.project
+*.settings/
+
+# Ignore Maven target directory
+/target/
+
+# Ignore Gradle build directory
+/.gradle/
+/build/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
