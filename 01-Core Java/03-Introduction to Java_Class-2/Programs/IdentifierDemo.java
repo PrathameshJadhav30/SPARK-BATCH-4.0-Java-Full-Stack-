@@ -11,9 +11,9 @@ class IdentifierDemo
 		
 		 // Invalid identifiers  Uncommenting these lines will cause compilation errors
 
-        // int 2ndValue = 10;    // Invalid: Starts with digit (not allowed)
-        // int for = 5;          // Invalid: 'for' is a reserved keyword in Java
-        // int class = 100;      // Invalid: 'class' is a keyword
+                // int 2ndValue = 10;    // Invalid: Starts with digit (not allowed)
+                // int for = 5;          // Invalid: 'for' is a reserved keyword in Java
+                // int class = 100;      // Invalid: 'class' is a keyword
 		
 		//Displaying valid identifiers values
 		System.out.println("age: " + age);
