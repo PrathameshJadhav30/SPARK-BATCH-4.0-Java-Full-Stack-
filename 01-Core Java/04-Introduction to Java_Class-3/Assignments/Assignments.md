@@ -105,3 +105,10 @@ Also apply:
 
 * Fixed charge: ₹50
 * If total bill > ₹500, add 10% surcharge
+
+## ✅ Prepared By-
+
+- Name: Prathamesh Jadhav
+- Artificial Intelligence & Data Science Enginner
+
+---
