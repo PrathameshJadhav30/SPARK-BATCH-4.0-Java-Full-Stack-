@@ -1,0 +1,12 @@
+let str = "JavaScript";
+console.log(str.length);
+console.log(str.toUpperCase());
+console.log(str.slice(0, 4));
+console.log(str.replace("Java", "Type"));
+console.log(str.split("a"));
+console.log(str.indexOf("Script"));
+console.log(str.lastIndexOf("a"));
+console.log(str.charAt(0));
+console.log(str.includes("Script"));
+console.log(str.startsWith("Java"));
+console.log(str.endsWith("Script"));
