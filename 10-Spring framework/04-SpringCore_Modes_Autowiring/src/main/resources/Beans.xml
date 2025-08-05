@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="engine" class="org.Pratham.PetrolEngine"  />
+<!--    <bean id="DiselEng" class="org.Pratham.DiselEngine"  autowire-candidate="false" />-->
+<!--    <bean id="Car" class="org.Pratham.Car" autowire="byName"/>-->
+<!--    <bean id="Car" class="org.Pratham.Car" autowire="byType"/>-->
+    <bean id="Car" class="org.Pratham.Car" autowire="constructor"/>
+</beans>
