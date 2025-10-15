@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Members | Library Management</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header><h1>Library Management System</h1></header>
+  <nav>
+    <a href="index.html">Dashboard</a>
+    <a href="books.html">Books</a>
+    <a href="members.html">Members</a>
+    <a href="loans.html">Loans</a>
+  </nav>
+
+  <div class="container">
+    <h2>👤 Members</h2>
+    <form id="memberForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="text" id="phone" placeholder="Phone" required />
+      <button type="submit" class="btn-primary">Add Member</button>
+    </form>
+
+    <table id="membersTable">
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script>
+    async function loadMembers() {
+      const members = await fetchMembers();
+      const tbody = document.querySelector("#membersTable tbody");
+      tbody.innerHTML = "";
+      members.forEach(m => {
+        const row = `<tr><td>${m.id}</td><td>${m.name}</td><td>${m.email}</td><td>${m.phone}</td></tr>`;
+        tbody.insertAdjacentHTML("beforeend", row);
+      });
+    }
+
+    document.querySelector("#memberForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const member = {
+        name: name.value,
+        email: email.value,
+        phone: phone.value
+      };
+      await createMember(member);
+      e.target.reset();
+      loadMembers();
+    });
+
+    loadMembers();
+  </script>
+</body>
+</html>

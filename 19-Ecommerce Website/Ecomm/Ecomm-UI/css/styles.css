@@ -1,0 +1,229 @@
+/* =======================
+   Global Theme Colors
+   ======================= */
+:root {
+  --primary-color: #ff6600; /* Vibrant Orange */
+  --secondary-color: #111; /* Dark Gray Background */
+  --text-color: #ddd; /* Light Text */
+  --footer-text: #888; /* Footer Text (Improved) */
+  --hover-color: #ff8533; /* Lighter Orange */
+  --white: #fff; /* White Text */
+  --navbar-bg: #1f1f1f; /* Slightly lighter for navbar */
+  --card-bg: #1a1a1a;
+  --muted: #6c757d;
+}
+
+/* Add top padding so fixed navbar doesn't overlap content */
+body {
+  padding-top: 75px;
+  background: linear-gradient(180deg, #0f0f10 0%, #0a0a0b 100%);
+  color: var(--text-color);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =======================
+   Navbar Styling (Fixed)
+   ======================= */
+.navbar {
+  background: linear-gradient(90deg, rgba(31,31,31,0.95), rgba(20,20,20,0.95)) !important;
+  padding: 12px 18px;
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.navbar-brand {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-color) !important;
+  letter-spacing: 0.4px;
+}
+
+.nav-link {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-color) !important;
+  margin: 0 8px;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  color: var(--hover-color) !important;
+}
+
+/* Cart badge */
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* =======================
+   Hero Section (Carousel)
+   ======================= */
+.mt-nav { margin-top: 6px; }
+.hero-img {
+  height: 420px;
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+/* Caption styling */
+.carousel-caption {
+  bottom: 30%;
+  transform: translateY(10px);
+  background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.35));
+  display: inline-block;
+  padding: 18px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.carousel-caption h2 {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--white);
+  margin: 0 0 6px 0;
+}
+
+.carousel-caption p {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.carousel-caption .btn {
+  background: var(--primary-color);
+  border: none;
+  color: var(--white);
+}
+
+/* =======================
+   Product Section
+   ======================= */
+.section-title {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: var(--primary-color);
+}
+
+/* Product Cards */
+.card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(25,25,25,0.9), rgba(20,20,20,0.9));
+  color: var(--text-color);
+  box-shadow: 0px 6px 18px rgba(255, 102, 0, 0.06);
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Card Body should be column so 'Add to Cart' sticks bottom */
+.card .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Product Image */
+.card-img-top {
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  background: #0d0d0d;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 14px 30px rgba(255,102,0,0.12);
+}
+
+.card:hover .card-img-top {
+  transform: scale(1.06);
+}
+
+/* Card texts */
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #fff;
+}
+.card-text {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+/* Price */
+.price {
+  font-size: 18px;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+/* Add to Cart Button */
+.btn-primary {
+  background: var(--primary-color);
+  border: none;
+  opacity: 0.95;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.btn-primary:hover {
+  background: var(--hover-color);
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+/* Small responsive tweaks */
+@media (max-width: 767px) {
+  .hero-img { height: 260px; }
+  .carousel-caption { bottom: 18%; padding: 12px; }
+  .card-img-top { height: 180px; }
+}
+
+/* =======================
+   Footer Styling
+   ======================= */
+.footer {
+  background: transparent;
+  color: var(--footer-text);
+  padding: 40px 0 70px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.footer h5 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  color: var(--text-color);
+}
+
+.footer-list { list-style: none; padding: 0; margin: 0; }
+.footer-list li { margin-bottom: 8px; color: var(--footer-text); }
+.footer-list a { color: var(--footer-text); text-decoration: none; }
+.footer-list a:hover { color: var(--primary-color); }
+
+/* Cart table tweaks */
+.table th, .table td { vertical-align: middle; color: #fff; border-top: none; }
+.table img { border-radius: 6px; }
+
+/* Empty cart image small tweak */
+#empty-cart img { filter: grayscale(0.2); }

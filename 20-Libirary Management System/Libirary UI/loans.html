@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Loans | Library Management</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header><h1>Library Management System</h1></header>
+  <nav>
+    <a href="index.html">Dashboard</a>
+    <a href="books.html">Books</a>
+    <a href="members.html">Members</a>
+    <a href="loans.html">Loans</a>
+  </nav>
+
+  <div class="container">
+    <h2>🔄 Manage Loans</h2>
+    <form id="loanForm">
+      <select id="bookSelect" required></select>
+      <select id="memberSelect" required></select>
+      <input type="number" id="days" placeholder="Days (default 14)" />
+      <button type="submit" class="btn-primary">Borrow Book</button>
+    </form>
+
+    <table id="loansTable">
+      <thead>
+        <tr><th>ID</th><th>Book</th><th>Member</th><th>Borrow</th><th>Due</th><th>Returned</th><th>Action</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script>
+    async function loadDropdowns() {
+      const books = await fetchBooks();
+      const members = await fetchMembers();
+      bookSelect.innerHTML = books.map(b => `<option value="${b.id}">${b.title}</option>`).join('');
+      memberSelect.innerHTML = members.map(m => `<option value="${m.id}">${m.name}</option>`).join('');
+    }
+
+    async function loadLoans() {
+      const loans = await fetchLoans();
+      const tbody = document.querySelector("#loansTable tbody");
+      tbody.innerHTML = "";
+      loans.forEach(l => {
+        const row = `
+          <tr>
+            <td>${l.id}</td>
+            <td>${l.book.title}</td>
+            <td>${l.member.name}</td>
+            <td>${l.borrowDate}</td>
+            <td>${l.dueDate}</td>
+            <td>${l.returned ? '✅' : '❌'}</td>
+            <td>${!l.returned ? `<button onclick="returnBook(${l.id})" class="btn-success">Return</button>` : ''}</td>
+          </tr>`;
+        tbody.insertAdjacentHTML("beforeend", row);
+      });
+    }
+
+    async function returnBook(id) {
+      await returnLoan(id);
+      loadLoans();
+    }
+
+    document.querySelector("#loanForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const bookId = bookSelect.value;
+      const memberId = memberSelect.value;
+      const days = days.value || 14;
+      await borrowBook(bookId, memberId, days);
+      loadLoans();
+    });
+
+    loadDropdowns();
+    loadLoans();
+  </script>
+</body>
+</html>
