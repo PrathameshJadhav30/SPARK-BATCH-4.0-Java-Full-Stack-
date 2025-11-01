@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <title>Loans | Library Management</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/loans.css" />
 </head>
 <body>
-  <header><h1>Library Management System</h1></header>
+  <header>
+    <h1>Library Management System</h1>
+  </header>
+
   <nav>
     <a href="index.html">Dashboard</a>
     <a href="books.html">Books</a>
@@ -25,11 +28,24 @@
 
     <table id="loansTable">
       <thead>
-        <tr><th>ID</th><th>Book</th><th>Member</th><th>Borrow</th><th>Due</th><th>Returned</th><th>Action</th></tr>
+        <tr>
+          <th>ID</th>
+          <th>Book</th>
+          <th>Member</th>
+          <th>Borrow</th>
+          <th>Due</th>
+          <th>Returned</th>
+          <th>Action</th>
+        </tr>
       </thead>
       <tbody></tbody>
     </table>
   </div>
+
+  <!-- ===== Footer Section ===== -->
+  <footer>
+    <p>Designed & Developed by <strong>Prathamesh Jadhav</strong> | © 2025 Library Management System</p>
+  </footer>
 
   <script src="js/api.js"></script>
   <script>
@@ -68,8 +84,8 @@
       e.preventDefault();
       const bookId = bookSelect.value;
       const memberId = memberSelect.value;
-      const days = days.value || 14;
-      await borrowBook(bookId, memberId, days);
+      const daysValue = days.value || 14;
+      await borrowBook(bookId, memberId, daysValue);
       loadLoans();
     });
 
